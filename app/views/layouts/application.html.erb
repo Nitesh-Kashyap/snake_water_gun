@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snake Water Gun</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="<%= root_path %>">Snake • Water • Gun</a></h1>
+      <nav>
+        <a href="<%= root_path %>">Play</a> |
+        <a href="<%= rounds_path %>">History</a> |
+        <% if user_signed_in? %>
+        Logged in as <%= current_user.email %> |
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "link-button" %>
+        <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> |
+        <%= link_to "Login", new_user_session_path %>
+        <% end %>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="container">
+    <% if flash[:alert] %>
+    <div class="flash alert"><%= flash[:alert] %></div>
+    <% end %>
+    <% if flash[:notice] %>
+    <div class="flash notice"><%= flash[:notice] %></div>
+    <% end %>
+    <%= yield %>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Made with ❤️ — Nitesh Kashyap</small>
+    </div>
+  </footer>
+</body>
+</html>

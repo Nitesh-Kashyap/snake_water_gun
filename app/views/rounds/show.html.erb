@@ -1,0 +1,18 @@
+<div class="result-card">
+  <h2>Result</h2>
+
+  <p><strong>You:</strong> <%= @round.player_choice.capitalize %></p>
+  <p><strong>Computer:</strong> <%= @round.computer_choice.capitalize %></p>
+
+  <p class="final <%= @round.result.downcase %>">
+    <% if @round.result == "Win" %>
+      🎉 You Win!
+    <% elsif @round.result == "Lose" %>
+      😞 You Lose
+    <% else %>
+      🤝 It's a Draw
+    <% end %>
+  </p>
+
+  <p><a href="<%= root_path %>">Play again</a> • <a href="<%= rounds_path %>">View history</a></p>
+</div>

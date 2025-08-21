@@ -1,0 +1,15 @@
+<div class="game-area">
+  <h2>Choose your weapon</h2>
+
+  <div class="choices">
+    <%= form_with url: rounds_path, method: :post do %>
+      <div class="choice-row">
+        <button name="choice" value="snake" class="choice-btn">🐍 Snake</button>
+        <button name="choice" value="water" class="choice-btn">💧 Water</button>
+        <button name="choice" value="gun" class="choice-btn">🔫 Gun</button>
+      </div>
+    <% end %>
+  </div>
+
+  <p class="hint">Tip: Click a button to play. Results are saved to history.</p>
+</div>

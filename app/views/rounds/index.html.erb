@@ -1,0 +1,43 @@
+<h2>History & Stats</h2>
+
+<section class="stats">
+  <h3>Results Summary</h3>
+  <ul>
+    <li>Wins: <%= @scores["Win"] || 0 %></li>
+    <li>Losses: <%= @scores["Lose"] || 0 %></li>
+    <li>Draws: <%= @scores["Draw"] || 0 %></li>
+  </ul>
+
+  <h3>Player's choices</h3>
+  <ul>
+    <% Round::CHOICES.each do |c| %>
+      <li><%= c.capitalize %>: <%= @choice_counts[c] || 0 %></li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="history">
+  <h3>Recent Rounds</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>You</th>
+        <th>Computer</th>
+        <th>Result</th>
+        <th>When</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recent_rounds.each_with_index do |r, idx| %>
+        <tr>
+          <td><%= idx + 1 %></td>
+          <td><%= r.player_choice.capitalize %></td>
+          <td><%= r.computer_choice.capitalize %></td>
+          <td><%= r.result %></td>
+          <td><%= r.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

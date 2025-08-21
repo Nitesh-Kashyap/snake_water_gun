@@ -1,0 +1,45 @@
+/* basic reset */
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin: 0; color: #111; background: #f6f8fb; }
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+/* header */
+.site-header { background: #222; color: white; padding: 12px 0; }
+.site-header a { color: white; text-decoration: none; }
+.site-header .container { display:flex; justify-content:space-between; align-items:center; }
+
+.game-area { text-align: center; padding: 30px 0; }
+.choices { margin: 20px 0; }
+.choice-row { display:flex; gap: 12px; justify-content: center; flex-wrap:wrap; }
+.choice-btn {
+  font-size: 18px; padding: 14px 24px; border-radius: 10px;
+  border: none; cursor: pointer; transition: transform .08s ease; background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.choice-btn:active { transform: scale(.98); }
+.hint { color: #666; }
+
+/* result */
+.result-card { background:white; padding:20px; border-radius:12px; box-shadow: 0 6px 20px rgba(16,24,40,0.06); max-width:520px; margin: 20px auto; text-align:center; }
+.final.win { color: green; font-weight:700; font-size:20px; }
+.final.lose { color: crimson; font-weight:700; font-size:20px; }
+.final.draw { color: #444; font-weight:700; font-size:20px; }
+
+/* history table */
+table { width:100%; border-collapse:collapse; margin-top:16px; background:white; border-radius:8px; overflow:hidden; }
+th, td { padding:10px 12px; text-align:left; border-bottom:1px solid #eee; }
+th { background: #fafafa; font-weight:600; }
+
+/* footer */
+.site-footer { margin-top:40px; padding:12px 0; text-align:center; color:#666; }
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+}
+
