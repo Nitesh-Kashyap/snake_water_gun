@@ -62,4 +62,6 @@ group :test do
   gem "selenium-webdriver"
 end
 gem "devise"
+gem "pg"
+gem "dotenv-rails", groups: [:development, :test]
 

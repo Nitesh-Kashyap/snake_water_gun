@@ -975,3 +975,907 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 7ms (Views: 2.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+Started GET "/" for ::1 at 2025-08-21 18:10:18 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+Processing by RoundsController#new as HTML
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 18:10:18 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 3.1ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 8.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | GC: 0.2ms)
+Completed 200 OK in 38ms (Views: 18.2ms | ActiveRecord: 1.3ms (0 queries, 0 cached) | GC: 2.4ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2025-08-21 18:10:29 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'nitesh.krjs@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 185ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 18:10:29 +0530
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/new.html.erb within layouts/application
+  Rendered rounds/new.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 3.6ms | ActiveRecord: 3.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/rounds" for ::1 at 2025-08-21 18:10:32 +0530
+Processing by RoundsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "choice"=>"snake"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mRound Create (1.3ms)[0m  [1m[32mINSERT INTO "rounds" ("player_choice", "computer_choice", "result", "created_at", "updated_at", "user_id") VALUES ('snake', 'water', 'Win', '2025-08-21 12:40:32.786724', '2025-08-21 12:40:32.786724', 1) RETURNING "id" /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (40.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+Redirected to http://localhost:3000/rounds/7
+Completed 302 Found in 79ms (ActiveRecord: 42.0ms (2 queries, 0 cached) | GC: 15.1ms)
+
+
+Started GET "/rounds/7" for ::1 at 2025-08-21 18:10:32 +0530
+Processing by RoundsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Load (0.1ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" WHERE "rounds"."id" = 7 LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/show.html.erb within layouts/application
+  Rendered rounds/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 2.9ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/rounds" for ::1 at 2025-08-21 18:10:35 +0530
+Processing by RoundsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."result" AS "rounds_result" FROM "rounds" GROUP BY "rounds"."result" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:43:in `index'
+  [1m[36mRound Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."player_choice" AS "rounds_player_choice" FROM "rounds" GROUP BY "rounds"."player_choice" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:45:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/index.html.erb within layouts/application
+  [1m[36mRound Load (0.2ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" ORDER BY "rounds"."created_at" DESC LIMIT 20 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/views/rounds/index.html.erb:32:in `each_with_index'
+  Rendered rounds/index.html.erb within layouts/application (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 6.1ms | ActiveRecord: 0.4ms (4 queries, 0 cached) | GC: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2025-08-21 18:10:38 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='destroy',application='SnakeWaterGun',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 17ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 18:10:38 +0530
+Processing by RoundsController#new as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 18:10:38 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 3.9ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 7.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 11.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2025-08-21 18:10:43 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_error_messages.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 6.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 18:10:45 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 3.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2025-08-21 18:10:52 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'nb9397@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='sessions'*/[0m
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | GC: 0.0ms)
+Completed 200 OK in 182ms (Views: 6.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "rounds" /*application='SnakeWaterGun'*/[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "rounds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "player_choice" varchar NOT NULL, "computer_choice" varchar NOT NULL, "result" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_rounds_on_user_id" ON "rounds" ("user_id") /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token") /*application='SnakeWaterGun'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SnakeWaterGun'*/[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SnakeWaterGun'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SnakeWaterGun'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "arounds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "player_choice" varchar NOT NULL, "computer_choice" varchar NOT NULL, "result" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_arounds_on_user_id" ON "arounds" ("user_id") /*application='SnakeWaterGun'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "arounds" ("id","player_choice","computer_choice","result","created_at","updated_at","user_id")
+                     SELECT "id","player_choice","computer_choice","result","created_at","updated_at","user_id" FROM "rounds" /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "rounds" /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "rounds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "player_choice" varchar NOT NULL, "computer_choice" varchar NOT NULL, "result" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, CONSTRAINT "fk_rails_113d07974c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_rounds_on_user_id" ON "rounds" ("user_id") /*application='SnakeWaterGun'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "rounds" ("id","player_choice","computer_choice","result","created_at","updated_at","user_id")
+                     SELECT "id","player_choice","computer_choice","result","created_at","updated_at","user_id" FROM "arounds" /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "arounds" /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250821120059) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250821120042),
+(20250821114921); /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-08-21 13:48:51.405321', '2025-08-21 13:48:51.405324') RETURNING "key" /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '0a4afdfabb115236229a124386f0780e08c54a55', '2025-08-21 13:48:51.411777', '2025-08-21 13:48:51.411782') RETURNING "key" /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+Started GET "/" for ::1 at 2025-08-21 19:19:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+Processing by RoundsController#new as HTML
+Completed 401 Unauthorized in 21ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 19:19:37 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 3.2ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 8.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | GC: 0.0ms)
+Completed 200 OK in 55ms (Views: 20.5ms | ActiveRecord: 6.1ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2025-08-21 19:19:41 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_error_messages.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 43.6ms | GC: 32.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 46.6ms | GC: 32.8ms)
+Completed 200 OK in 54ms (Views: 47.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 32.8ms)
+
+
+Started POST "/users" for ::1 at 2025-08-21 19:19:55 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mUser Exists? (6.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'nitesh.krjs@gmail.com' LIMIT 1 /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ('nitesh.krjs@gmail.com', '$2a$12$2Z7Lmq85Rj7IBuOvK2LBu.R2zcJUJYsoczMwTXS7mCcCSkzC7wBUa', NULL, NULL, NULL, '2025-08-21 13:49:55.859559', '2025-08-21 13:49:55.859559') RETURNING "id" /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 250ms (ActiveRecord: 22.6ms (2 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 19:19:55 +0530
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/new.html.erb within layouts/application
+  Rendered rounds/new.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 36ms (Views: 3.1ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/rounds" for ::1 at 2025-08-21 19:19:59 +0530
+Processing by RoundsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "choice"=>"gun"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mRound Create (1.6ms)[0m  [1m[32mINSERT INTO "rounds" ("player_choice", "computer_choice", "result", "created_at", "updated_at", "user_id") VALUES ('gun', 'snake', 'Win', '2025-08-21 13:49:59.764730', '2025-08-21 13:49:59.764730', 1) RETURNING "id" /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+Redirected to http://localhost:3000/rounds/1
+Completed 302 Found in 33ms (ActiveRecord: 2.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rounds/1" for ::1 at 2025-08-21 19:19:59 +0530
+Processing by RoundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Load (0.1ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" WHERE "rounds"."id" = 1 LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/show.html.erb within layouts/application
+  Rendered rounds/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 2.8ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rounds" for ::1 at 2025-08-21 19:20:02 +0530
+Processing by RoundsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."result" AS "rounds_result" FROM "rounds" GROUP BY "rounds"."result" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:43:in `index'
+  [1m[36mRound Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."player_choice" AS "rounds_player_choice" FROM "rounds" GROUP BY "rounds"."player_choice" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:45:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/index.html.erb within layouts/application
+  [1m[36mRound Load (2.3ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" ORDER BY "rounds"."created_at" DESC LIMIT 20 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/views/rounds/index.html.erb:32:in `each_with_index'
+  Rendered rounds/index.html.erb within layouts/application (Duration: 12.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | GC: 0.3ms)
+Completed 200 OK in 41ms (Views: 17.2ms | ActiveRecord: 1.0ms (4 queries, 0 cached) | GC: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2025-08-21 19:20:24 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='destroy',application='SnakeWaterGun',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 17ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 19:20:24 +0530
+Processing by RoundsController#new as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 19:20:24 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 4.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 20:05:38 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+Processing by RoundsController#new as HTML
+Completed 401 Unauthorized in 40ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 21.3ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 20:05:38 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 3.3ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 10.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | GC: 0.0ms)
+Completed 200 OK in 52ms (Views: 26.5ms | ActiveRecord: 1.6ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2025-08-21 20:05:48 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_error_messages.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 8.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 13.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-08-21 20:06:00 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mUser Exists? (5.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'nb9397@gmail.com' LIMIT 1 /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ('nb9397@gmail.com', '$2a$12$9kiIAFr8qeO7yfAZv2DcquM4E1.C2zozA75W0WVuzH6uI3I7yii1O', NULL, NULL, NULL, '2025-08-21 14:36:00.731653', '2025-08-21 14:36:00.731653') RETURNING "id" /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 238ms (ActiveRecord: 20.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 20:06:00 +0530
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/new.html.erb within layouts/application
+  Rendered rounds/new.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 34ms (Views: 3.2ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/rounds" for ::1 at 2025-08-21 20:06:07 +0530
+Processing by RoundsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "choice"=>"gun"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mRound Create (2.1ms)[0m  [1m[32mINSERT INTO "rounds" ("player_choice", "computer_choice", "result", "created_at", "updated_at", "user_id") VALUES ('gun', 'water', 'Lose', '2025-08-21 14:36:07.939107', '2025-08-21 14:36:07.939107', 2) RETURNING "id" /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+Redirected to http://localhost:3000/rounds/2
+Completed 302 Found in 34ms (ActiveRecord: 2.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rounds/2" for ::1 at 2025-08-21 20:06:07 +0530
+Processing by RoundsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Load (0.1ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" WHERE "rounds"."id" = 2 LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/show.html.erb within layouts/application
+  Rendered rounds/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 2.1ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rounds" for ::1 at 2025-08-21 20:06:12 +0530
+Processing by RoundsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."result" AS "rounds_result" FROM "rounds" GROUP BY "rounds"."result" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:43:in `index'
+  [1m[36mRound Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."player_choice" AS "rounds_player_choice" FROM "rounds" GROUP BY "rounds"."player_choice" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:45:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/index.html.erb within layouts/application
+  [1m[36mRound Load (1.7ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" ORDER BY "rounds"."created_at" DESC LIMIT 20 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/views/rounds/index.html.erb:32:in `each_with_index'
+  Rendered rounds/index.html.erb within layouts/application (Duration: 9.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | GC: 0.0ms)
+Completed 200 OK in 43ms (Views: 15.4ms | ActiveRecord: 1.2ms (4 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 20:06:19 +0530
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/new.html.erb within layouts/application
+  Rendered rounds/new.html.erb within layouts/application (Duration: 5.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 10.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2025-08-21 20:06:21 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='destroy',application='SnakeWaterGun',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 16ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 20:06:21 +0530
+Processing by RoundsController#new as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 20:06:21 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 5.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2025-08-21 20:06:30 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'nb9397@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 190ms (ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 20:06:30 +0530
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/new.html.erb within layouts/application
+  Rendered rounds/new.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 6.0ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/rounds" for ::1 at 2025-08-21 20:06:36 +0530
+Processing by RoundsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "choice"=>"water"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mRound Create (1.2ms)[0m  [1m[32mINSERT INTO "rounds" ("player_choice", "computer_choice", "result", "created_at", "updated_at", "user_id") VALUES ('water', 'water', 'Draw', '2025-08-21 14:36:36.397585', '2025-08-21 14:36:36.397585', 2) RETURNING "id" /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+Redirected to http://localhost:3000/rounds/3
+Completed 302 Found in 25ms (ActiveRecord: 1.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rounds/3" for ::1 at 2025-08-21 20:06:36 +0530
+Processing by RoundsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Load (0.5ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" WHERE "rounds"."id" = 3 LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/show.html.erb within layouts/application
+  Rendered rounds/show.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 37ms (Views: 1.6ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 14.5ms)
+
+
+Started GET "/rounds" for ::1 at 2025-08-21 20:06:39 +0530
+Processing by RoundsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."result" AS "rounds_result" FROM "rounds" GROUP BY "rounds"."result" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:43:in `index'
+  [1m[36mRound Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."player_choice" AS "rounds_player_choice" FROM "rounds" GROUP BY "rounds"."player_choice" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:45:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/index.html.erb within layouts/application
+  [1m[36mRound Load (0.2ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" ORDER BY "rounds"."created_at" DESC LIMIT 20 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/views/rounds/index.html.erb:32:in `each_with_index'
+  Rendered rounds/index.html.erb within layouts/application (Duration: 3.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 0.4ms (4 queries, 0 cached) | GC: 0.4ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[35mSET search_path TO public /*application='SnakeWaterGun'*/[0m
+  [1m[35m (61.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development" /*application='SnakeWaterGun'*/[0m
+  [1m[35m (119.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='SnakeWaterGun'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='SnakeWaterGun'*/[0m
+  [1m[35m (178.1ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode' /*application='SnakeWaterGun'*/[0m
+  [1m[35m (121.6ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='SnakeWaterGun'*/[0m
+[dotenv] Set [36mDATABASE_URL[0m, [36mRAILS_MASTER_KEY[0m, [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, and [36mPGPORT[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mDATABASE_URL[0m, [36mRAILS_MASTER_KEY[0m, [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, and [36mPGPORT[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, and [36mPGPORT[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='SnakeWaterGun'*/[0m
+  [1m[35m (67.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development" /*application='SnakeWaterGun'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mSET search_path TO public /*application='SnakeWaterGun'*/[0m
+  [1m[35m (30.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='SnakeWaterGun'*/[0m
+[dotenv] Set [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, and [36mPGPORT[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='SnakeWaterGun'*/[0m
+  [1m[35m (120.2ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode' /*application='SnakeWaterGun'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='SnakeWaterGun'*/[0m
+  [1m[35m (105.5ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='SnakeWaterGun'*/[0m
+[dotenv] Set [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, and [36mPGPORT[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "rounds" CASCADE /*application='SnakeWaterGun'*/[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "rounds" ("id" bigserial primary key, "player_choice" character varying NOT NULL, "computer_choice" character varying NOT NULL, "result" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "user_id" integer NOT NULL) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_rounds_on_user_id" ON "rounds" ("user_id") /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE /*application='SnakeWaterGun'*/[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='SnakeWaterGun'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token") /*application='SnakeWaterGun'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "rounds" ADD CONSTRAINT "fk_rails_113d07974c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+ /*application='SnakeWaterGun'*/[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250821120059) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250821120042),
+(20250821114921); /*application='SnakeWaterGun'*/[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-08-21 15:33:01.852018', '2025-08-21 15:33:01.852022') RETURNING "key" /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '0a4afdfabb115236229a124386f0780e08c54a55', '2025-08-21 15:33:01.862234', '2025-08-21 15:33:01.862236') RETURNING "key" /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315) /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315) /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+[dotenv] Set [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, and [36mPGPORT[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, and [36mPGPORT[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-08-21 21:05:30 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+Completed 401 Unauthorized in 79ms (ActiveRecord: 32.6ms (1 query, 0 cached) | GC: 28.5ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 21:05:30 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 3.6ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 18.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | GC: 0.0ms)
+Completed 200 OK in 47ms (Views: 32.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2025-08-21 21:05:35 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_error_messages.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 13.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 18.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-08-21 21:05:46 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'nitesh.krjs@gmail.com' LIMIT 1 /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mUser Create (11.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ('nitesh.krjs@gmail.com', '$2a$12$60Y9Wx6Nf1smw0ZFKk0NeuGd0KbPeAJcUItlEDfsskTrYaNkqnAEa', NULL, NULL, NULL, '2025-08-21 15:35:47.013234', '2025-08-21 15:35:47.013234') RETURNING "id" /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 234ms (ActiveRecord: 15.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 21:05:47 +0530
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/new.html.erb within layouts/application
+  Rendered rounds/new.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 41ms (Views: 3.4ms | ActiveRecord: 3.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/rounds" for ::1 at 2025-08-21 21:05:49 +0530
+Processing by RoundsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "choice"=>"gun"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mRound Create (4.7ms)[0m  [1m[32mINSERT INTO "rounds" ("player_choice", "computer_choice", "result", "created_at", "updated_at", "user_id") VALUES ('gun', 'water', 'Lose', '2025-08-21 15:35:49.859485', '2025-08-21 15:35:49.859485', 1) RETURNING "id" /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+Redirected to http://localhost:3000/rounds/1
+Completed 302 Found in 48ms (ActiveRecord: 7.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rounds/1" for ::1 at 2025-08-21 21:05:49 +0530
+Processing by RoundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Load (0.4ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" WHERE "rounds"."id" = 1 LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/show.html.erb within layouts/application
+  Rendered rounds/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 51ms (Views: 3.3ms | ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 27.5ms)
+
+
+Started GET "/rounds" for ::1 at 2025-08-21 21:05:51 +0530
+Processing by RoundsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Count (11.7ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."result" AS "rounds_result" FROM "rounds" GROUP BY "rounds"."result" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:43:in `index'
+  [1m[36mRound Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."player_choice" AS "rounds_player_choice" FROM "rounds" GROUP BY "rounds"."player_choice" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:45:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/index.html.erb within layouts/application
+  [1m[36mRound Load (0.3ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" ORDER BY "rounds"."created_at" DESC LIMIT 20 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/views/rounds/index.html.erb:32:in `each_with_index'
+  Rendered rounds/index.html.erb within layouts/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | GC: 0.0ms)
+Completed 200 OK in 46ms (Views: 6.7ms | ActiveRecord: 13.2ms (4 queries, 0 cached) | GC: 1.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2025-08-21 21:05:59 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='destroy',application='SnakeWaterGun',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 25ms (ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 21:05:59 +0530
+Processing by RoundsController#new as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 21:06:00 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 6.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2025-08-21 21:06:07 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'nitesh.krjs@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 198ms (ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 21:06:07 +0530
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/new.html.erb within layouts/application
+  Rendered rounds/new.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 3.0ms | ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started POST "/rounds" for ::1 at 2025-08-21 21:06:09 +0530
+Processing by RoundsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "choice"=>"gun"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mRound Create (4.0ms)[0m  [1m[32mINSERT INTO "rounds" ("player_choice", "computer_choice", "result", "created_at", "updated_at", "user_id") VALUES ('gun', 'gun', 'Draw', '2025-08-21 15:36:09.176783', '2025-08-21 15:36:09.176783', 1) RETURNING "id" /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (12.1ms)[0m  [1m[35mCOMMIT /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+Redirected to http://localhost:3000/rounds/2
+Completed 302 Found in 37ms (ActiveRecord: 16.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rounds/2" for ::1 at 2025-08-21 21:06:09 +0530
+Processing by RoundsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Load (1.8ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" WHERE "rounds"."id" = 2 LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/show.html.erb within layouts/application
+  Rendered rounds/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 1.9ms | ActiveRecord: 3.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rounds" for ::1 at 2025-08-21 21:06:12 +0530
+Processing by RoundsController#index as HTML
+  [1m[36mUser Load (12.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."result" AS "rounds_result" FROM "rounds" GROUP BY "rounds"."result" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:43:in `index'
+  [1m[36mRound Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."player_choice" AS "rounds_player_choice" FROM "rounds" GROUP BY "rounds"."player_choice" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:45:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/index.html.erb within layouts/application
+  [1m[36mRound Load (0.2ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" ORDER BY "rounds"."created_at" DESC LIMIT 20 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/views/rounds/index.html.erb:32:in `each_with_index'
+  Rendered rounds/index.html.erb within layouts/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | GC: 0.0ms)
+Completed 200 OK in 44ms (Views: 4.3ms | ActiveRecord: 14.5ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+[dotenv] Set [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, [36mPGPORT[0m, and [36mDATABASE[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35mSQL (274.3ms)[0m  [1m[35mSET search_path TO public /*application='SnakeWaterGun'*/[0m
+  [1m[35m (4441.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development" /*application='SnakeWaterGun'*/[0m
+  [1m[35mSQL (269.7ms)[0m  [1m[35mSET search_path TO public /*application='SnakeWaterGun'*/[0m
+  [1m[35m (4315.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='SnakeWaterGun'*/[0m
+[dotenv] Set [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, [36mPGPORT[0m, and [36mDATABASE[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35mSQL (263.4ms)[0m  [1m[35mSET search_path TO public /*application='SnakeWaterGun'*/[0m
+  [1m[35m (4813.4ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode' /*application='SnakeWaterGun'*/[0m
+  [1m[35mSQL (264.3ms)[0m  [1m[35mSET search_path TO public /*application='SnakeWaterGun'*/[0m
+  [1m[35m (4985.9ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='SnakeWaterGun'*/[0m
+[dotenv] Set [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, [36mPGPORT[0m, and [36mDATABASE[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35mSQL (275.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" SCHEMA pg_catalog /*application='SnakeWaterGun'*/[0m
+  [1m[35m (279.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "rounds" CASCADE /*application='SnakeWaterGun'*/[0m
+  [1m[35m (298.6ms)[0m  [1m[35mCREATE TABLE "rounds" ("id" bigserial primary key, "player_choice" character varying NOT NULL, "computer_choice" character varying NOT NULL, "result" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "user_id" integer NOT NULL) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (285.5ms)[0m  [1m[35mCREATE INDEX "index_rounds_on_user_id" ON "rounds" ("user_id") /*application='SnakeWaterGun'*/[0m
+  [1m[35m (282.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE /*application='SnakeWaterGun'*/[0m
+  [1m[35m (279.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (263.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='SnakeWaterGun'*/[0m
+  [1m[35m (259.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token") /*application='SnakeWaterGun'*/[0m
+  [1m[35m (267.9ms)[0m  [1m[35mALTER TABLE "rounds" ADD CONSTRAINT "fk_rails_113d07974c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+ /*application='SnakeWaterGun'*/[0m
+  [1m[35m (279.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (265.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[35m (263.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250821120059) /*application='SnakeWaterGun'*/[0m
+  [1m[35m (278.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250821120042),
+(20250821114921); /*application='SnakeWaterGun'*/[0m
+  [1m[35m (273.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (271.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (292.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-08-21 15:46:57.487495', '2025-08-21 15:46:57.487498') RETURNING "key" /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (303.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (269.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (314.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'ceff35eb76ca50db39a07517f9dec297aa4a2b07', '2025-08-21 15:46:58.636418', '2025-08-21 15:46:58.636420') RETURNING "key" /*application='SnakeWaterGun'*/[0m
+  [1m[35m (264.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315) /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (259.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (272.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SnakeWaterGun'*/[0m
+  [1m[35m (264.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315) /*application='SnakeWaterGun'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (282.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+[dotenv] Set [36mPGUSER[0m, [36mPGPASSWORD[0m, [36mPGHOST[0m, [36mPGPORT[0m, and [36mDATABASE[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-08-21 21:17:33 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (297.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SnakeWaterGun'*/[0m
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (276.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+Completed 401 Unauthorized in 5446ms (ActiveRecord: 7608.4ms (1 query, 0 cached) | GC: 27.4ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 21:17:43 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 5.6ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 12.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | GC: 0.0ms)
+Completed 200 OK in 55ms (Views: 31.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2025-08-21 21:18:11 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 5.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 7.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2025-08-21 21:18:18 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (275.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'nitesh.krjs@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='sessions'*/[0m
+Completed 401 Unauthorized in 291ms (ActiveRecord: 275.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 6.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | GC: 0.0ms)
+Completed 200 OK in 197ms (Views: 10.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2025-08-21 21:18:29 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_error_messages.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered /home/nitesh/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 7.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 16.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-08-21 21:18:41 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (264.5ms)[0m  [1m[35mBEGIN /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mUser Exists? (543.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'nitesh.krjs@gmail.com' LIMIT 1 /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mUser Create (270.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ('nitesh.krjs@gmail.com', '$2a$12$8fq/ASDw5642a2DKL916AemcTXJ.A/1QjkmAJwftn4eU9RRgiSPMC', NULL, NULL, NULL, '2025-08-21 15:48:42.280015', '2025-08-21 15:48:42.280015') RETURNING "id" /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+  [1m[36mTRANSACTION (272.7ms)[0m  [1m[35mCOMMIT /*action='create',application='SnakeWaterGun',controller='registrations'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 1312ms (ActiveRecord: 1351.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 21:18:42 +0530
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (266.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/new.html.erb within layouts/application
+  Rendered rounds/new.html.erb within layouts/application (Duration: 4.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | GC: 0.0ms)
+Completed 200 OK in 871ms (Views: 7.3ms | ActiveRecord: 833.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rounds" for ::1 at 2025-08-21 21:18:48 +0530
+Processing by RoundsController#index as HTML
+  [1m[36mUser Load (277.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Count (275.8ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."result" AS "rounds_result" FROM "rounds" GROUP BY "rounds"."result" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:43:in `index'
+  [1m[36mRound Count (277.0ms)[0m  [1m[34mSELECT COUNT(*) AS "count_all", "rounds"."player_choice" AS "rounds_player_choice" FROM "rounds" GROUP BY "rounds"."player_choice" /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:45:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/index.html.erb within layouts/application
+  [1m[36mRound Load (263.5ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" ORDER BY "rounds"."created_at" DESC LIMIT 20 /*action='index',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/views/rounds/index.html.erb:32:in `each_with_index'
+  Rendered rounds/index.html.erb within layouts/application (Duration: 275.2ms | GC: 2.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 276.9ms | GC: 2.9ms)
+Completed 200 OK in 1124ms (Views: 15.8ms | ActiveRecord: 1093.3ms (4 queries, 0 cached) | GC: 2.9ms)
+
+
+Started GET "/" for ::1 at 2025-08-21 21:18:51 +0530
+Processing by RoundsController#new as HTML
+  [1m[36mUser Load (276.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='SnakeWaterGun',controller='rounds'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/new.html.erb within layouts/application
+  Rendered rounds/new.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 292ms (Views: 3.2ms | ActiveRecord: 276.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/rounds" for ::1 at 2025-08-21 21:18:57 +0530
+Processing by RoundsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "choice"=>"water"}
+  [1m[36mUser Load (275.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mTRANSACTION (284.8ms)[0m  [1m[35mBEGIN /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mRound Create (562.5ms)[0m  [1m[32mINSERT INTO "rounds" ("player_choice", "computer_choice", "result", "created_at", "updated_at", "user_id") VALUES ('water', 'snake', 'Lose', '2025-08-21 15:48:57.634071', '2025-08-21 15:48:57.634071', 1) RETURNING "id" /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (271.9ms)[0m  [1m[35mCOMMIT /*action='create',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:22:in `create'
+Redirected to http://localhost:3000/rounds/1
+Completed 302 Found in 1149ms (ActiveRecord: 1394.7ms (2 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/rounds/1" for ::1 at 2025-08-21 21:18:58 +0530
+Processing by RoundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (284.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  [1m[36mRound Load (392.5ms)[0m  [1m[34mSELECT "rounds".* FROM "rounds" WHERE "rounds"."id" = 1 LIMIT 1 /*action='show',application='SnakeWaterGun',controller='rounds'*/[0m
+  ↳ app/controllers/rounds_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rounds/show.html.erb within layouts/application
+  Rendered rounds/show.html.erb within layouts/application (Duration: 3.5ms | GC: 1.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | GC: 1.3ms)
+Completed 200 OK in 698ms (Views: 8.9ms | ActiveRecord: 677.3ms (2 queries, 0 cached) | GC: 1.8ms)
+
+
